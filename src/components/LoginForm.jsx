@@ -11,7 +11,7 @@ const LogInForm = ({loggedin, history}) => {
   } else {
     return (
       <div className="form">
-      <button onClick={() => history.push('/')}></button>
+      <button onClick={() => history.push('/')}>HOME</button>
       </div>
     )
   }
