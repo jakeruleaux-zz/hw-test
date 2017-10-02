@@ -1,10 +1,12 @@
 import React from 'react';
 
+
+
 const LogInForm = ({loggedin, history}) => {
   if(!loggedin) {
     return(
       <div className="form">
-      <input type="text" placeholder="log in"/>
+      <input type="text" placeholder="User Name"/>
       <button onClick={() =>history.push('/loggedin')}>enter</button>
       </div>
     )
