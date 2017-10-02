@@ -1,6 +1,6 @@
 import React from 'react';
 import LogInForm from './LogInForm';
-import styles from './../styles/Entered.css';
+import styles from './../styles/LoggedIn.css';
 
 class LoggedIn extends React.Component {
   render(){
