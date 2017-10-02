@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import c from './../constants';
 import { v4 } from 'uuid';
+import { connect } from 'react-redux';
 
-class newUser extends React.Component {
+
+class NewUser extends React.Component {
 
   constructor(props) {
     super(props);
@@ -37,7 +39,7 @@ class newUser extends React.Component {
       </div>
     );
   }
-
-  NewUser = connec()(NewUser);
+}
+  NewUser = connect()(NewUser);
 
   export default NewUser;
