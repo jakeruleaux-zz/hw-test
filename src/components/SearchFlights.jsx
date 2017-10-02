@@ -1,4 +1,6 @@
 import React from 'react';
+import { getFlight } from './../actions';
+import { connect } from 'react-redux';
 
 class SearchFlights extends React.Component {
 
@@ -9,6 +11,8 @@ class SearchFlights extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.dispatch(getFlight());
+
   }
   render(){
     return(
@@ -35,9 +39,10 @@ class SearchFlights extends React.Component {
            type="date"
            refs="_date"/>
          <button type="Submit">search</button>
+         <button onClick={this.handleSubmit}>test</button>
        </form>
      </div>
     );
   }
 }
-export default SearchFlights;
+export default connect()(SearchFlights);

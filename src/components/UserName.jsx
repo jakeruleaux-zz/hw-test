@@ -35,6 +35,7 @@ class NewUser extends React.Component {
             type="text"
             id="name"
           />
+          <button type="submit">Enter</button>
         </form>
       </div>
     );
