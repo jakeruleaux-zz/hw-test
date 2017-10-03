@@ -5,19 +5,33 @@ import LoggedIn from './LoggedIn';
 import PageWrap from './PageWrap';
 import styles from './../styles/Home.css';
 import SearchFlights from './SearchFlights';
+import UserList from './UserList';
+import UserName from './UserName';
+import {connect} from 'react-redux';
 
 
 class Home extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return(
       <div className = {styles.home}>
-        <Route path='/loggedin' exact component={PageWrap(LoggedIn)}></Route>
-        <Route path='/' exact component={PageWrap(LogIn)}></Route>
+      
         <SearchFlights />
+        <UserName />
 
       </div>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = state => {
+  return {
+    masterUserList : state
+  }
+}
+
+export default connect(mapStateToProps)(Home);

@@ -3,3 +3,4 @@ export const ADD_NAME = "ADD_NAME";
 export const REQUEST_FLIGHT = "REQUEST_FLIGHT";
 export const RECIEVE_FLIGHT = "RECIEVE_FLIGHT";
 export const DISPLAY_FLIGHT = "DISPLAY_FLIGHT";
+export const SET_FLIGHT = "SET_FLIGHT";

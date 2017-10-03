@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function UserName(props) {
+function User(props) {
   return (
     <div>
-      <p>UserName: {props.name}</p>
+      <p>User One: {props.name}</p>
     </div>
   );
 }
 
-UserName.propTypes ={
+User.propTypes ={
   name: PropTypes.string,
   id: PropTypes.string
 };
 
-export default UserName;
+export default User;

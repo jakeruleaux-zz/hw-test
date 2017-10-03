@@ -5,23 +5,24 @@ import { v4 } from 'uuid';
 import { connect } from 'react-redux';
 
 
-class NewUser extends React.Component {
+class UserName extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.handleNewUser = this.handleNewUser.bind(this);
+    this.handleUserName = this.handleUserName.bind(this);
   }
 
-  handleNewUser(event) {
+  handleUserName(event) {
     event.preventDefault();
     const { _name } = this.refs;
     const { dispatch } =this.props;
     const action = {
       type: c.ADD_NAME,
       id: v4(),
-      name: _name.value,
+      name: _name.value
     }
+    console.log(name);
     dispatch(action);
     _name.value = "";
   }
@@ -29,9 +30,9 @@ class NewUser extends React.Component {
   render(){
     return(
       <div>
-        <form onSubmit={this.handleNewUser}>
+        <form onSubmit={this.handleUserName}>
           <input
-            refs="_name"
+            ref="_name"
             type="text"
             id="name"
           />
@@ -41,6 +42,6 @@ class NewUser extends React.Component {
     );
   }
 }
-  NewUser = connect()(NewUser);
+  UserName = connect()(UserName);
 
-  export default NewUser;
+  export default UserName;

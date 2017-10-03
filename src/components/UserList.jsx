@@ -3,6 +3,7 @@ import User from './User';
 import PropTypes from 'prop-types';
 
 function UserList(props) {
+
   return (
     <div>
           {props.userList.map((user, index) =>
@@ -18,4 +19,5 @@ function UserList(props) {
 UserList.propTypes = {
   userList: PropTypes.array
 }
+
 export default UserList;
