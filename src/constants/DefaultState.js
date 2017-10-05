@@ -1,3 +1,3 @@
 export const defaultState = {
-  name: "bob"
+  isFetching: false,
 };

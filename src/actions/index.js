@@ -10,7 +10,7 @@ const flightId = v4();
 
 
 export const requestFlight = (flightId) => ({
-  type: types.REQUEST_FLIGHT,
+  type: types.SEARCH_FLIGHTS,
   flightId : flightId,
 });
 
@@ -20,7 +20,7 @@ export function getFlight(dispatch) {
     slice: [
       {
         origin: "pdx",
-        destination: "lax",
+        destination: "",
         date: moment().format('YYYY-MM-DD')
       }
     ],
@@ -42,13 +42,12 @@ export function getFlight(dispatch) {
     dispatch(requestFlight());
     console.log("start");
     console.log(options);
-    console.log(parameters);
 
     return
     fetch("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyDU0sK531yzL7Mu5NuLYYkorxExkmi_A44", {options, parameters}
 
     ).then(response => response.json(),
-    error => console.log("error", error)
+    error => console.log("error", error),
   ).then(function(json) {
     if (json.id) {
     const flight = json;
@@ -60,8 +59,8 @@ export function getFlight(dispatch) {
     });
 };
 }
-export const recieveFlight = (flight, flightId) => ({
+export const recieveFlight = (flight) => ({
   type: types.RECIEVE_FLIGHT,
   flight,
-  flightId,
+
 });

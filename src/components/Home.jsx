@@ -18,8 +18,7 @@ class Home extends React.Component {
       <div className = {styles.home}>
         <Header />
         <SearchFlights />
-        <TicketList
-          ticketList = {this.props.masterTicketList}/>
+  
 
       </div>
     );
