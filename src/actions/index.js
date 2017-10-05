@@ -19,9 +19,9 @@ export function getFlight(dispatch) {
   request: {
     slice: [
       {
-        origin: "",
-        destination: "",
-        date: moment(date).format('YYYY-MM-DD')
+        origin: "pdx",
+        destination: "lax",
+        date: moment().format('YYYY-MM-DD')
       }
     ],
     passengers: {

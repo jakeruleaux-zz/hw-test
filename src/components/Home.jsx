@@ -8,6 +8,7 @@ import SearchFlights from './SearchFlights';
 import UserList from './UserList';
 import UserName from './UserName';
 import {connect} from 'react-redux';
+import Header from './Header';
 
 
 class Home extends React.Component {
@@ -19,9 +20,8 @@ class Home extends React.Component {
   render() {
     return(
       <div className = {styles.home}>
-      
+        <Header />
         <SearchFlights />
-        <UserName />
 
       </div>
     );

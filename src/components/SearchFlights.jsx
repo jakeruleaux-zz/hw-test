@@ -1,6 +1,7 @@
 import React from 'react';
 import { getFlight } from './../actions';
 import { connect } from 'react-redux';
+import styles from './../styles/SearchFlights.css';
 
 class SearchFlights extends React.Component {
 
@@ -14,12 +15,45 @@ class SearchFlights extends React.Component {
     this.props.dispatch(getFlight());
 
   }
+
+
   render(){
     return(
-      <div>
+      <div className={styles.searchflights}>
+        <div>
+        <div className="row">
+          <div className="col-md-6">
+            <h2>Search Flights</h2>
+            <div className="formGroup">
+              <label>From  </label>
+              <input type="text"/>
+            </div>
+            <br/>
+            <div className="formGroup">
+              <label>To  </label>
+              <input type="text"/>
+            </div>
+            <br/>
+            <div className="formGroup">
+              <label>Deaprture  </label>
+              <input type="date"/>
+            </div>
+            <br/>
+            <div className="formGroup">
+              <label>Return  </label>
+              <input type="date"/>
+            </div>
+            <br/>
+            <div className="formGroup">
+              <label>Passengers  </label>
+              <input type="text"/>
+            </div>
+            <br/>
+            <button onClick={this.handleSubmit}>Search</button>
 
-         <button onClick={this.handleSubmit}>test</button>
-  
+          </div>
+        </div>
+      </div>
      </div>
     );
   }
