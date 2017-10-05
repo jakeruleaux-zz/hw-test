@@ -1,11 +1,12 @@
 import * as types from "./../constants/ActionTypes";
 import v4 from "uuid/v4";
 import fetch from "isomorphic-fetch";
+import moment from "moment";
 
 
 const API_KEY = "AIzaSyDU0sK531yzL7Mu5NuLYYkorxExkmi_A44";
 const flightId = v4();
-const headers = {'Content-Type' : 'application/json'}
+
 
 
 export const requestFlight = (flightId) => ({
@@ -14,17 +15,39 @@ export const requestFlight = (flightId) => ({
 });
 
 export function getFlight(dispatch) {
+  const parameters = {
+  request: {
+    slice: [
+      {
+        origin: "",
+        destination: "",
+        date: moment(date).format('YYYY-MM-DD')
+      }
+    ],
+    passengers: {
+      adultCount: 1,
+
+    },
+    solutions: 20,
+  }
+};
+
+  const options = {
+    method: "POST",
+    headers: {'ContentType': 'application/json'},
+    body : JSON.stringify(parameters)
+  };
+
   return function (dispatch) {
-    dispatch(requestFlight(flightId));
+    dispatch(requestFlight());
     console.log("start");
-    console.log(headers);
+    console.log(options);
+    console.log(parameters);
 
     return
-    fetch("https:www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyDU0sK531yzL7Mu5NuLYYkorxExkmi_A44", {
-      method: 'get',
-      headers: {'Content-Type' : 'application/json'}
-    }).then(response => response.json(),
-    console.log("prebob"),
+    fetch("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyDU0sK531yzL7Mu5NuLYYkorxExkmi_A44", {options, parameters}
+
+    ).then(response => response.json(),
     error => console.log("error", error)
   ).then(function(json) {
     if (json.id) {
